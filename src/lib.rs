@@ -384,7 +384,7 @@ mod tests {
 
         cpu.run();
         // skip if vx != vy
-        assert_eq!(cpu.registers[0],11);
+        assert_eq!(cpu.registers[0], 11);
     }
     #[test]
     fn addition_and_multiplication() {
