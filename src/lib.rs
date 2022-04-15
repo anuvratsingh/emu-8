@@ -29,7 +29,7 @@ impl CPU {
             let y = ((opcode & 0x00F0) >> 4) as u8;
             let d = ((opcode & 0x000F) >> 0) as u8;
 
-            let nnn = opcode & 0xFFF;
+            let nnn = opcode & 0x0FFF;
             let _kk = (opcode & 0x00FF) as u8;
 
             match (c, x, y, d) {
