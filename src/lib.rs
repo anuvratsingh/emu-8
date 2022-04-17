@@ -29,7 +29,7 @@ impl CPU {
             let c = ((opcode & 0xF000) >> 12) as u8;
             let x = ((opcode & 0x0F00) >> 8) as u8;
             let y = ((opcode & 0x00F0) >> 4) as u8;
-            let d = ((opcode & 0x000F) >> 0) as u8;
+            let d = (opcode & 0x000F) as u8; // >> 0
 
             let nnn = opcode & 0x0FFF;
             let kk = (opcode & 0x00FF) as u8;
@@ -109,11 +109,11 @@ impl CPU {
             self.position_in_memory += 2;
         }
     }
-    pub fn set(&mut self, vx: u8, kk_vy: u8) {
-        self.registers[vx as usize] = kk_vy;
+    pub fn set(&mut self, _vx: u8, kk_vy: u8) {
+        self.registers[_vx as usize] = kk_vy;
     }
-    pub fn add(&mut self, vx: u8, kk_vy: u8) {
-        self.registers[vx as usize] += kk_vy;
+    pub fn add(&mut self, _vx: u8, kk_vy: u8) {
+        self.registers[_vx as usize] += kk_vy;
     }
 
     pub fn or_bitwise_set(&mut self, x: u8, y: u8) {
